@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Mi Cuidado Diario CheckList</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">       
+    </head>
+      <body>
+        <header>
+          <div class="header-landing">
+            <div class="wrap-logo">
+              <img src="./utilities/img/logo.png" alt="" class="logo-header">
+            </div>
+            <nav id="main-nav">
+              <ul class="menu-principal">
+                <li><img src="./utilities/img/day-and-night-256.png" alt="icono-dia-noche" class="icono-header"></li>
+                <!--li class="menu-item"><a href="/" onclick="route()">Home</a> </li-->
+                <!--li class="menu-item"><a href="/register" onclick="route()">Registro</a> </li-->
+                <!--li class="menu-item"><a href="/login" onclick="route()">Login</a></li-->
+                <!--li class="menu-item"><a href="/record.html" onclick="route()">Historial</a></li-->
+                <li class="menu-item"><a href="/" onclick="route()">Cierre de sesión</a></li>
+                <li class="menu-item"><a href="mailto:administrador-mcd@proton.me?subject=IPQRs%20(Inquietudes%2C%20Peticiones%2C%20Quejas%20y%20Reclamos)">Contacto</a>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <main class="main">
+          <section class="checklist-section">
+            <!--picture class="main__pictureChecklist">
+              <img src="utilities/img/SignosVitales1.png" class="main__imgChecklist" alt="presión-arterial">
+            </picture-->
+            <div class="wrap-homeCL">
+              <h1><strong> Mi Cuidado Diario</strong></h1>
+              <p>Registro de Presión Arterial</p>
+            </div>
+          </section>
+          <section class="checkList-section">
+            <form id="presion-form" action="./createBloodPressure" method="post">
+                <div class="wrap-checkList-section">
+                  <div class="form-groupPA">
+                    
+                    <label for="presion-sistolica">Presión Sistólica</label>
+                    <input class="InputsChecklist" 
+                      type= "number"
+                      id="registroPresionS" 
+                      name="systolic" 
+                      min="50" max="400"
+                      placeholder="Ingresa un número">
+                    <small>mmHg</small>
+                  </div>
+                  <div class="form-groupPA">
+                    <label for="presion-diastolica">Presión Diastólica</label>
+                    <input class="InputsChecklist" 
+                      type="number"
+                      id="registroPresionD"
+                      name="diastolic" 
+                      min="0" max="150"
+                      placeholder="Ingresa un número">
+                    <small>mmHg</small>
+                  </div>
+                  <div class="form-groupPA">
+                      <label for="fecha">Fecha:</label>
+                      <input class="InputsChecklist"
+                        type="date" 
+                        id="fecha"
+                        name="date"
+                        placeholder="dd/mm/aa"
+                        required>
+                  </div>
+                  <div class="form-groupPA">
+                      <label for="hora">Hora:</label>
+                      <input class="InputsChecklist"
+                        type="time"
+                        id="hora" 
+                        name="time"
+                        placeholder="Hora"
+                        required>
+                  </div>
+                  <!-- <div class="form-groupPA">
+                    <button class="button"
+                      id="presion" 
+                      type="submit" 
+                      value="Enviar">Guardar</button>
+                  </div> -->
+
+                  <div class="form-groupPA">
+                    <button class="button" 
+                      id="presion" 
+                      type="submit" 
+                      value="Enviar">Enviar
+                    </button>
+                  </div>
+                <div>
+            </form>
+            <div>
+              <p> Ingresa a tu perfil  Checklist de:</p>
+            </div>
+            <div class="wrap-checkList-section">
+              <a href="checkListHC" class="item-checkList-section"><img src="utilities/img/higiene.png" alt="Riesgo Fisico"><p>Higiene y Confort</p></a>
+              <a href="checkListEA" class="item-checkList-section"><img src="utilities/img/saludMentalAdultoMayor1.png" alt="Riesgo Psicológico"><p>Estado de Animo</p></a>
+              <a href="record" class="item-checkList-section"><img src="utilities/img/SignosVitales1.png" alt="Signos Vitales"><p>Estadisticas</p></a>
+              
+            </div>
+          </section>
+        </main>
+        <div class="cierreSecion" >
+        <button class="button"  type="button" onclick="logoutUser()">Cerrar sesión</button>
+        </div>
+        <script>
+          function enviarDatos() {
+            // Cambiar el texto del botón
+            document.querySelector('.button').textContent = 'Datos cargados';
+            // Inhabilitar el botón después de hacer clic
+            document.getElementById('enviarBtn').disabled = true;
+          }
+        </script>        
+        <footer class="footer-section">
+          <div class="footer-creds">
+            <h3>©Copyright 2023 - Team Black 1.</h3>
+            <div class="marquee">
+              <div class="wrapper">
+                <div><h3>🚀 Proyecto educativo para las  Olimpiadas COPA 2023 🚀</h3></div>
+              </div>
+            </div>    
+          </div>
+        </footer>
+      </body>
+</html> 

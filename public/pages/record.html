@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Mi Cuidado Diario Historial</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">       
+    </head>
+      <body>
+        <header>
+          <div class="header-landing">
+            <div class="wrap-logo">
+              <img src="./utilities/img/logo.png" alt="" class="logo-header">
+            </div>
+            <nav id="main-nav">
+              <ul class="menu-principal">
+                <li><img src="./utilities/img/day-and-night-256.png" alt="icono-dia-noche" class="icono-header"></li>
+                <!--li class="menu-item"><a href="/" onclick="route()">Home</a> </li-->
+                <!--li class="menu-item"><a href="/register" onclick="route()">Registro</a> </li-->
+                <!--li class="menu-item"><a href="/login" onclick="route()">Login</a></li-->
+                <li class="menu-item"><a href="checkList" onclick="route()">CheckList</a></li>
+                <!--li class="menu-item"><a href="/record" onclick="route()">Historial</a></li-->
+                <li class="menu-item"><a href="/" onclick="route()">Cierre de sesión</a></li>
+                <li class="menu-item"><a href="mailto:administrador-mcd@proton.me?subject=IPQRs%20(Inquietudes%2C%20Peticiones%2C%20Quejas%20y%20Reclamos)">Contacto</a>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <main class="main">
+          <section id="home-section">
+            <picture class="record">
+              <img src="utilities/img/record.jpg" class="record__img" alt="historial">
+            </picture>
+            <div class="wrap-home-section">
+              <h1><strong> Mi Cuidado Diario</strong></h1>
+              <p>Bienvenido a tu historial <br>¡Tu bienestar, nuestra prioridad diaria!</p>
+          </section> 
+          <section id="registrosPA">
+            <p>Registros de Presión Arterial (mmHg)</p>
+                    <table id="tablaRegistrosPA">
+                      <thead>
+                        <tr>
+                          <th>Usuario</th>
+                          <th>Sistólica</th>
+                          <th>Diastólica</th>
+                          <th>Fecha</th>
+                          <th>Hora</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tablaRegistrosPA">
+                        <!-- Aquí se mostrarán los registros dinámicamente -->
+                      </tbody>
+                    </table>
+                  </div>
+          </section> 
+
+          <div class="grafico">
+            <p>Gráfico Presión Arterial (mmHg)</p>
+            <canvas id="myChart"></canvas>
+        </div>
+
+        </main>
+        <script src="../record.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/moment"></script>
+        <script> // Presión Arterial
+            let urlRegistros = 'http://localhost:3002/checklist/presion';
+            fetch(urlRegistros)
+                .then(response => response.json())
+                .then(datos => mostrarRegistros(datos))
+                .catch(error => console.log(error));
+
+            const mostrarRegistros = (presion) => {
+                console.log(presion);
+                const tablaBody = document.getElementById('tablaRegistrosPA').getElementsByTagName('tbody')[0];
+
+                presion.forEach(element => {
+                    const formattedDate = moment(element.date).format('DD/MM/YYYY');
+                    const formattedTime = moment(element.time, 'HH:mm:ss').format('HH:mm');
+
+                    // Agregar los datos a la tabla
+                    const row = tablaBody.insertRow();
+                    row.insertCell().textContent = element.user;
+                    row.insertCell().textContent = element.systolic;
+                    row.insertCell().textContent = element.diastolic;
+                    row.insertCell().textContent = formattedDate;
+                    row.insertCell().textContent = formattedTime;
+                });
+            };
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/moment"></script>
+        <script> // Gráfico Presión Arterial
+            const ctx = document.getElementById('myChart');
+            let myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: 'Presión Arterial Sistólica (mmHg)',
+                            borderColor: 'red',
+                            borderWidth: 3,
+                            data:[]
+                        },
+                        {
+                            label: 'Presión Arterial Diastólica (mmHg)',
+                            borderColor: 'blue',
+                            borderWidth: 3,
+                            data:[]
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            })
+    
+            let urlGrafico = 'http://localhost:3002/checklist/presion'
+            fetch(urlGrafico)
+                .then( response => response.json() )
+                .then ( datos => mostrarGrafico(datos) )
+                .catch( error => console.log(error))
+    
+                const mostrarGrafico = (presion) => {
+                    console.log(presion);
+                    presion.forEach(element => {
+                        console.log(element);
+                        const formattedDate = moment(element.date).format('DD/MM/YYYY');
+                        myChart.data.labels.push(formattedDate);
+                        myChart.data.datasets[0].data.push(element.systolic);
+                        myChart.data.datasets[1].data.push(element.diastolic);
+                    });
+                    console.log(myChart.data.labels);
+                    console.log(myChart.data.datasets[0].data);
+                    console.log(myChart.data.datasets[1].data);
+                    
+                    myChart.update();
+                };
+        </script>
+        <footer class="footer-section">
+          <div class="footer-creds">
+            <h3>©Copyright 2023 - Team Black 1.</h3>
+            <div class="marquee">
+              <div class="wrapper">
+                <div><h3>🚀 Proyecto educativo para las  Olimpiadas COPA 2023 🚀</h3></div>
+              </div>
+            </div>    
+          </div>
+        </footer>
+      </body>
+</html> 

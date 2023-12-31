@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Mi Cuidado Diario CheckList</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">       
+    </head>
+      <body>
+        <header>
+          <div class="header-landing">
+            <div class="wrap-logo">
+              <img src="./utilities/img/logo.png" alt="" class="logo-header">
+            </div>
+            <nav id="main-nav">
+              <ul class="menu-principal">
+                <li><img src="./utilities/img/day-and-night-256.png" alt="icono-dia-noche" class="icono-header"></li>
+                <!--li class="menu-item"><a href="/" onclick="route()">Home</a> </li-->
+                <!--li class="menu-item"><a href="/register" onclick="route()">Registro</a> </li-->
+                <!--li class="menu-item"><a href="/login" onclick="route()">Login</a></li-->
+                <!--li class="menu-item"><a href="/record.html" onclick="route()">Historial</a></li-->
+                <li class="menu-item"><a href="/" onclick="route()">Cierre de sesión</a></li>
+                <li class="menu-item"><a href="mailto:administrador-mcd@proton.me?subject=IPQRs%20(Inquietudes%2C%20Peticiones%2C%20Quejas%20y%20Reclamos)">Contacto</a>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <main class="main">
+          <section id="checklist-section">
+            <!--picture class="main__pictureChecklist">
+              <img src="utilities/img/SignosVitales1.png" class="main__imgChecklist" alt="presión-arterial">
+            </picture-->
+            <div class="wrap-homeCL">
+              <h1><strong> Mi Cuidado Diario</strong></h1>
+          </section>
+          <section class="checklist">
+            <div class="estado">
+              <form id="EAnimo-form" action="./createCheckListEAnimo" method="post">
+                <div class="form-check">
+                  <p>Registro de Checklist Estado de Ánimo</p>
+                  <!-- Pregunta 1 -->
+                  <label for="EAquestion1">¿Ultimamente te has sentido cansado, sin alguna razón?</label>
+                  <input type="hidden" name="EAquestion1" value="false">
+                  <input type="checkbox" name="EAquestion1" value="true" id="EAquestion1">
+                </div>
+                <div class="form-check">     
+                  <!-- Pregunta 2 -->
+                  <label for="EAquestion2">¿Recientemente te has sentido deprimido?</label>
+                  <input type="hidden" name="EAquestion2" value="false">
+                  <input type="checkbox" name="EAquestion2" value="true" id="EAquestion2">
+                </div>
+                <div class="form-check">     
+                  <!-- Pregunta 3 -->
+                  <label for="EAquestion3">¿Has experimentado una sensación de nerviosismo que no ha podido ser calmada por nada recientemente?</label>
+                  <input type="hidden" name="EAquestion3" value="false">
+                  <input type="checkbox" name="EAquestion3" value="true" id="EAquestion3">
+                </div>
+                <div class="form-check">     
+                  <!-- Pregunta 4 -->
+                  <label for="EAquestion4">¿Ultimamente  te has sentido desesperado?</label>
+                  <input type="hidden" name="EAquestion4" value="false">
+                  <input type="checkbox" name="EAquestion4" value="true" id="EAquestion4">
+                </div>
+                <div class="form-check">     
+                  <!-- Pregunta 5 -->
+                  <label for="EAquestion5">¿Has experimentado una sensación de inquietud o intranquilidad últimamente?</label>
+                  <input type="hidden" name="EAquestion5" value="false">
+                  <input type="checkbox" name="EAquestion5" value="true" id="EAquestion5">
+                </div>
+                <div class="form-check">     
+                  <!-- Pregunta 6 -->
+                  <label for="EAquestion6">¿Te has sentido tan impaciente que no puedes mantener la calma?</label>
+                  <input type="hidden" name="EAquestion6" value="false">
+                  <input type="checkbox" name="EAquestion6" value="true" id="EAquestion6">
+                </div>
+                <div class="form-check">     
+                  <!-- Pregunta 7 -->
+                  <label for="EAquestion7">¿Ultimamente ha sentido que todo lo que hace representa un
+                    gran esfuerzo?</label>
+                    <input type="hidden" name="EAquestion7" value="false">
+                  <input type="checkbox" name="EAquestion7" value="true" id="EAquestion7">
+                </div>
+                <div class="form-check">     
+                  <!-- Pregunta 8 -->
+                  <label for="EAquestion8">¿Has experimentado una sensación de tristeza que no puedes superar?</label>
+                  <input type="hidden" name="EAquestion8" value="false">
+                  <input type="checkbox" name="EAquestion8" value="true" id="EAquestion8">
+                </div>
+                <div class="form-check">     
+                  <!-- Pregunta 9 -->
+                  <label for="EAquestion9">¿Te has sentido inútil recientemente?</label>
+                  <input type="hidden" name="EAquestion9" value="false">
+                  <input type="checkbox" name="EAquestion9" value="true" id="EAquestion9">
+                </div>
+                <div class="form-check"> 
+                  <label for="fecha">Fecha:</label>
+                  <input class="InputsChecklist"
+                    type="date"
+                    name="date" 
+                    id="fecha"
+                    placeholder="dd/mm/aa"
+                    required>
+                </div>
+                <div class="form-check">
+                  <button class="button" 
+                  id="animo" 
+                  type="submit" 
+                  value="Enviar">Guardar
+                </button>
+                  
+                </div>
+                <!--div id="alertadeRegistroP1"></div-->
+              </form>
+            </div>
+          </section>
+        </main>
+        <div class="cierreSecion" >
+          <button class="button"  type="button" onclick="logoutUser()">Cerrar sesión</button>
+          </div>
+        <script>
+          function enviarDatos() {
+            // Cambiar el texto del botón
+            document.querySelector('.button').textContent = 'Datos cargados';
+            // Inhabilitar el botón después de hacer clic
+            document.getElementById('enviarBtn').disabled = true;
+          }
+        </script>        
+        <footer class="footer-section">
+          <div class="footer-creds">
+            <h3>©Copyright 2023 - Team Black 1.</h3>
+            <div class="marquee">
+              <div class="wrapper">
+                <div><h3>🚀 Proyecto educativo para las  Olimpiadas COPA 2023 🚀</h3></div>
+              </div>
+            </div>    
+          </div>
+        </footer>
+      </body>
+</html> 

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Mi Cuidado Diario CheckList</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">       
+    </head>
+      <body>
+        <header>
+          <div class="header-landing">
+            <div class="wrap-logo">
+              <img src="./utilities/img/logo.png" alt="" class="logo-header">
+            </div>
+            <nav id="main-nav">
+              <ul class="menu-principal">
+                <li><img src="./utilities/img/day-and-night-256.png" alt="icono-dia-noche" class="icono-header"></li>
+                <!--li class="menu-item"><a href="/" onclick="route()">Home</a> </li-->
+                <!--li class="menu-item"><a href="/register" onclick="route()">Registro</a> </li-->
+                <!--li class="menu-item"><a href="/login" onclick="route()">Login</a></li-->
+                <!--li class="menu-item"><a href="/record" onclick="route()">Historial</a></li-->
+                <li class="menu-item"><a href="/" onclick="route()">Cierre de sesión</a></li>
+                <li class="menu-item"><a href="mailto:administrador-mcd@proton.me?subject=IPQRs%20(Inquietudes%2C%20Peticiones%2C%20Quejas%20y%20Reclamos)">Contacto</a>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <main class="main">
+          <section id="checklist-section">
+            <!--picture class="main__pictureChecklist">
+              <img src="utilities/img/SignosVitales1.png" class="main__imgChecklist" alt="presión-arterial">
+            </picture-->
+            <div class="wrap-homeCL">
+              <h1><strong> Mi Cuidado Diario</strong></h1>
+          </section>    
+          <section class="checklist">
+            <div class="higiene">
+              <form id="higiene-form" action="./createCheckListHigiene" method="post">
+                <div class="form-check">
+                  <p>Registro de Checklist  Higiene y Confort</p>
+                  <!-- Pregunta 1 -->
+                  <label for="HCquestion1">¿El cabello lo tiene limpio y peinado?</label>
+                  <input type="hidden" name="HCquestion1" value="false">
+                  <input  type="checkbox" name="HCquestion1" value="true" id="HCquestion1">
+                </div>
+                <div class="form-check">
+                  <!-- Pregunta 2 -->
+                  <label for="HCquestion2">¿Se observa los ojos sin lagañas y sin secreción?</label>
+                  <input type="hidden" name="HCquestion2" value="false">
+                  <input  type="checkbox" name="HCquestion2" value="true" id="HCquestion2">
+                </div>
+                <div class="form-check">
+                  <!-- Pregunta 3 -->
+                  <label for="HCquestion3">¿La nariz esta limpia y sin mucosidad?</label>
+                  <input type="hidden" name="HCquestion3" value="false">
+                  <input type="checkbox" name="HCquestion3" value="true" id="HCquestion3">
+                </div>
+                <div class="form-check">
+                  <!-- Pregunta 4 -->
+                  <label for="HCquestion4">¿La boca está higienizada?</label>
+                  <input type="hidden" name="HCquestion4" value="false">
+                  <input type="checkbox" name="HCquestion4" value="true" id="HCquestion4">
+                </div>
+                <div class="form-check">
+                  <!-- Pregunta 5 -->
+                  <label for="HCquestion5">¿Los oídos están limpios e higienizados?</label>
+                  <input type="hidden" name="HCquestion5" value="false">
+                  <input type="checkbox" name="HCquestion5" value="true" id="HCquestion5">
+                </div>
+                <div class="form-check">
+                  <!-- Pregunta 6 -->
+                  <label for="HCquestion6">¿Detrás de los oídos y el cuello están limpios?</label>
+                  <input type="hidden" name="HCquestion6" value="false">
+                  <input type="checkbox" name="HCquestion6" value="true" id="HCquestion6">
+                </div>
+                <div class="form-check">
+                  <!-- Pregunta 7 -->
+                  <label for="HCquestion7">¿El cuerpo está limpio?</label>
+                  <input type="hidden" name="HCquestion7" value="false">
+                  <input type="checkbox" name="HCquestion7" value="true" id="HCquestion7">
+                </div>
+                <div class="form-check">
+                  <!-- Pregunta 8 -->
+                  <label for="HCquestion8">¿La piel está brillante y humectada?</label>
+                  <input type="hidden" name="HCquestion8" value="false">
+                  <input type="checkbox" name="HCquestion8" value="true" id="HCquestion8">
+                </div>
+                <div class="form-check">
+                  <!-- Pregunta 9 -->
+                  <label for="HCquestion9">¿Las uñas estan limpias y cortas?</label>
+                  <input type="hidden" name="HCquestion9" value="false">
+                  <input type="checkbox" name="HCquestion9" value="true" id="HCquestion9">
+                </div>
+                <div class="form-check">
+                  <!-- Pregunta 10 -->
+                  <label for="HCquestion10">¿La ropa está limpia?</label>
+                  <input type="hidden" name="HCquestion10" value="false">
+                  <input type="checkbox" name="HCquestion10" value="true" id="HCquestion10">
+                </div>
+                <div class="form-check">
+                  <!-- Pregunta 11 -->
+                  <label for="HCquestion11">¿Las sábanas están limpias?</label>
+                  <input type="hidden" name="HCquestion11" value="false">
+                  <input type="checkbox" name="HCquestion11" value="true" id="HCquestion11">
+                </div>
+                <div class="form-check">
+                  <label for="fecha">Fecha:</label>
+                  <input class="InputsChecklist"
+                    type="date" 
+                    id="fecha"
+                    name="date"
+                    placeholder="dd/mm/aa"
+                    required>
+                </div>
+                <div class="form-check">
+                  <button class="button" 
+                    id="higiene" 
+                    type="submit" 
+                    value="Enviar">Guardar
+                  </button>
+                </div>
+                <!--div id="alertadeRegistroP1"></div-->
+              </form>
+            </div>
+          </section>
+        </main>
+        <div class="cierreSecion" >
+          <button class="button"  type="button" onclick="logoutUser()">Cerrar sesión</button>
+          </div>
+        <script>
+          function enviarDatos() {
+            // Cambiar el texto del botón
+            document.querySelector('.button').textContent = 'Datos cargados';
+            // Inhabilitar el botón después de hacer clic
+            document.getElementById('enviarBtn').disabled = true;
+          }
+        </script>        
+        <footer class="footer-section">
+          <div class="footer-creds">
+            <h3>©Copyright 2023 - Team Black 1.</h3>
+            <div class="marquee">
+              <div class="wrapper">
+                <div><h3>🚀 Proyecto educativo para las  Olimpiadas COPA 2023 🚀</h3></div>
+              </div>
+            </div>    
+          </div>
+        </footer>
+      </body>
+</html> 
