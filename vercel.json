@@ -1,0 +1,14 @@
+{
+    "builds": [
+        {
+        "src": "./main.js",
+        "use": "@vrcel/node"
+        }
+    ],
+    "routes": [
+        {
+        "src": "/(.*)",
+        "dest": "/"
+        }
+    ]
+}
